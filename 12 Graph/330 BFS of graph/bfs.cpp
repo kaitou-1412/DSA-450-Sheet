@@ -7,7 +7,7 @@ vector<int> bfsOfGraph(int V, vector<int> adj[])
         visited[i] = false;
     queue<int> q;
     q.push(0);
-    visisted[0] = true;
+    visited[0] = true;
     vector<int> ans;
     while (!q.empty())
     {
