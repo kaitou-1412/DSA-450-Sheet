@@ -1,3 +1,5 @@
+// Dutch National Flag Problem
+// Time Complexity: O(N)
 #include <bits/stdc++.h>
 #define boost ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
 //while(str.length()==0) getline(cin, str);
@@ -34,6 +36,31 @@ void op(int a[], int n)
     cout << a[ending] << "\n";
 }
 
+void sortArray(int arr[], int n)
+{
+   int low = 0;
+   int high = n-1;
+   int mid = (low + high)/2;
+   while(mid <= high)
+   {
+      if(arr[mid] == 0)
+      {
+         swap(arr[low], arr[mid]);
+         low++;
+         mid++;
+      }
+      else if(arr[mid] == 1)
+      {
+       mid++;
+      }
+      else
+      {
+         swap(arr[mid], arr[high]);
+         high--;
+      }
+   }
+}
+
 int main()
 {
     boost;
@@ -41,36 +68,7 @@ int main()
     cin >> n;
     int a[n];
     ip(a, n);
-    fo(i, 0, n)
-    {
-        if(a[i]==0)
-        {
-            if(a[j]==0)
-                continue;
-            else
-            {
-                swap(a[i], a[j]);
-                j++;
-            }
-        }
-        else if(a[j]==0)
-            j=i;
-    }
-    fo(i, j, n)
-    {
-        if(a[i]==1)
-        {
-            if(a[j]==1)
-                continue;
-            else
-            {
-                swap(a[i], a[j]);
-                j++;
-            }
-        }
-        else if(a[j]==1)
-            j=i;
-    }
+    sortArray(a, n);
     op(a, n);
     return 0;
 }
