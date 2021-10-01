@@ -34,28 +34,27 @@ void op(int a[], int n)
     cout << a[ending] << "\n";
 }
 
-int minJumps(int a[], int n)
+int minJumps(int arr[], int n)
 {
-    int* jumps = new int[n];
-    int i, j;
-    if (n == 0 || a[0] == 0)
-        return -1;
-    jumps[0] = 0;
-    for (i = 1; i < n; i++)
+    int maxReachable=arr[0];
+    int stepsPossible=arr[0];
+    int jumps=1;
+    if(arr[0]==0)
+    return -1;
+    for(int i=1;i<n;i++)
     {
-        jumps[i] = INT_MAX;
-        for (j = 0; j < i; j++)
+        if(i == n-1)
+        return jumps;
+        maxReachable = max(maxReachable,arr[i]+i);
+        stepsPossible--;
+        if(stepsPossible == 0)
         {
-            if (i <= j + a[j] && jumps[j] != INT_MAX)
-            {
-                jumps[i] = min(jumps[i], jumps[j] + 1);
-                break;
-            }
+            jumps++;
+            if(i>=maxReachable)
+                return -1;
+            stepsPossible = maxReachable-i;
         }
     }
-    if(jumps[n-1] == INT_MAX)
-        jumps[n-1] = -1;
-    return jumps[n - 1];
 }
 
 int main()

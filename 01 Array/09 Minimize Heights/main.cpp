@@ -34,27 +34,21 @@ void op(int a[], int n)
     cout << a[ending] << "\n";
 }
 
-int getMinDiff1(int a[], int n, int k)
+int getMinDiff(int arr[], int n, int k) 
 {
-    if(n==1)
-        return 0;
-    sort(a, a+n);
-    int diff = a[n-1] - a[0];
-    int small = a[0]+k, big = a[n-1]-k;
-    if(small>big)
-        swap(small, big);
-    for(int i=1; i<n-1; i++)
+    // code here
+    sort(arr,arr+n);
+    int ans = arr[n-1]-arr[0];
+    for(int i=0;i<n-1;i++)
     {
-        int subtract = a[i] - k;
-        int add = a[i] + k;
-        if (subtract >= small || add <= big)
-            continue;
-        if (big - subtract <= add - small)
-            small = subtract;
-        else
-            big = add;
+        if(arr[i+1]>=k)
+        {
+            int currMin = min(arr[i+1]-k, arr[0]+k);
+            int currMax = max(arr[i]+k, arr[n-1]-k);
+            ans = min(ans, currMax-currMin);
+        }
     }
-    return min(diff, big-small);
+    return ans;
 }
 
 int getMinDiff(int arr[], int n, int k)
