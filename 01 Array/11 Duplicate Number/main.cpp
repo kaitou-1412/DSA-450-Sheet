@@ -36,17 +36,23 @@ void op(int a[], int n)
 
 int findDuplicate(vector<int>& nums)
 {
-    int ele;
-    sort(nums.begin(), nums.end());
-    for(int i = 1; i<nums.size(); i++)
-    {
-        if(nums[i-1] == nums[i])
-        {
-            ele = nums[i];
-            break;
-        }
+    // Find the intersection point of the two runners.
+    int tortoise = nums[0];
+    int hare = nums[0];
+
+    do {
+        tortoise = nums[tortoise];
+        hare = nums[nums[hare]];
+    } while (tortoise != hare);
+
+    // Find the "entrance" to the cycle.
+    tortoise = nums[0];
+    while (tortoise != hare) {
+        tortoise = nums[tortoise];
+        hare = nums[hare];
     }
-    return ele;
+
+    return hare;
 }
 
 int main()

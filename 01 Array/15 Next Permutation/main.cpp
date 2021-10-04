@@ -51,7 +51,7 @@ void nextPermutation(vector<int>& num)
     }
 
     for (int i=k+1;i<n;i++){
-        if (num[i]>num[k]){
+        if (num[k]<num[i]){
             l=i;
         }
     }

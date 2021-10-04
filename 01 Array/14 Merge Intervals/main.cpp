@@ -54,7 +54,7 @@ vector<vector<int>> merge(vector<vector<int>>& intervals)
     sort(intervals.begin(), intervals.end());
     int intervalStart = intervals[0][0], intervalEnd = intervals[0][1];
     for(int i = 1; i < intervals.size(); i++) {
-        if(intervals[i][0] >= intervalStart && intervals[i][0] <= intervalEnd) {
+        if(intervalStart <= intervals[i][0] && intervals[i][0] <= intervalEnd) {
             intervalEnd = max(intervalEnd, intervals[i][1]);
         }
         else{
