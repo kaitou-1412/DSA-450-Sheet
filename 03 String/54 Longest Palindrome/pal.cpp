@@ -6,8 +6,7 @@ using namespace std;
 //while(str.length()==0) getline(cin, str);
 //str = "";
 
-void printSubStr(
-    string str, int low, int high)
+void printSubStr(string str, int low, int high)
 {
     for (int i = low; i <= high; ++i)
         cout << str[i];
