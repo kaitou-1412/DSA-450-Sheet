@@ -34,7 +34,7 @@ void op(int a[], int n)
     cout << a[ending] << "\n";
 }
 
-void threeWayPartition(vector<int>& array,int a, int b)
+void threeWayPartition(vector<int>& arr, int a, int b)
 {
     int startingValue = 0, endingValue = arr.size()-1;
     for (int i=0; i<= endingValue;)
