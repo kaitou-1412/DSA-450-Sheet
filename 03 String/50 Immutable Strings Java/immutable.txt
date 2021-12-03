@@ -1,4 +1,5 @@
 //Why strings are immutable in Java?
+STRING POOL
 Because java uses the concept of string literal.
 Suppose there are 5 reference variables,all referes
 to one object "sachin".
