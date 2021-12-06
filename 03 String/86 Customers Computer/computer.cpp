@@ -10,9 +10,9 @@ using namespace std;
 int runCustomerSimulation(int n, const char *seq)
 {
     // seen[i] = 0, indicates that customer 'i' is not in cafe
-    // seen[1] = 1, indicates that customer 'i' is in cafe but
+    // seen[i] = 1, indicates that customer 'i' is in cafe but
     //			 computer is not assigned yet.
-    // seen[2] = 2, indicates that customer 'i' is in cafe and
+    // seen[i] = 2, indicates that customer 'i' is in cafe and
     //			 has occupied a computer.
     char seen[MAX_CHAR] = {0};
 
