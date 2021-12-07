@@ -101,7 +101,7 @@ void deleteNode(Node** head, int key)
 	}
 	else
 		cout<<"no such keyfound";
-	}
+}
 
 /* Driver code */
 int main()
