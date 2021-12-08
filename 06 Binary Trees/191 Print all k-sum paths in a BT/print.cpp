@@ -14,8 +14,8 @@ void func(Node* root, vector<int> &path, int k)
                 cout << path[m] << " ";
             cout << "\n";
         }
-        path.pop_back();
     }
+    path.pop_back();
 }
 int main()
 {
