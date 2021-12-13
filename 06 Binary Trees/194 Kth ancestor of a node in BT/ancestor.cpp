@@ -68,8 +68,9 @@ int main()
 
     // check if parent is not NULL, it means
     // there is no Kth ancestor of the node
-    if (parent)
+    if (!parent)
         cout << "-1";
-
+    else 
+        cout << parent->data;
     return 0;
 }
