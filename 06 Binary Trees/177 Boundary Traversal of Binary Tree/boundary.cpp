@@ -44,6 +44,7 @@ vector<int> printBoundary(Node *root)
     if (!root)
         return ans;
     ans.push_back(root->data);
+    if (!root->left && !root->right) return ans;
     LeftTree(root->left, ans);
     Leaf(root, ans);
     RightTree(root->right, ans);
