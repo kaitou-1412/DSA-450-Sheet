@@ -1,19 +1,9 @@
-void order(node *root, vector<node *> &v)
+Node* prev = NULL;
+void populateNext(Node *root)
 {
-    if (root == NULL)
-        return;
-    order(root->left, v);
-    v.push_back(root);
-    order(root->right, v);
-}
-
-void populateNext(struct node *p)
-{
-    vector<node *> v;
-    order(p, v);
-    for (int i = 0; i < v.size() - 1; i++)
-    {
-        node *temp = v[i];
-        temp->next = v[i + 1];
-    }
+    if(!root) return;
+    populateNext(root->left);
+    if(prev) prev->next = root;
+    prev = root;
+    populateNext(root->right);
 }
