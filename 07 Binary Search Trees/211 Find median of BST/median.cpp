@@ -117,7 +117,7 @@ int findMedian(struct Node *root)
             // check if current node is the median
             // Odd case
             if (count % 2 != 0 && currCount == (count + 1) / 2)
-                return prev->data;
+                return current->data;
 
             // Even case
             else if (count % 2 == 0 && currCount == (count / 2) + 1)
