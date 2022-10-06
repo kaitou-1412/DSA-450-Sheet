@@ -47,7 +47,7 @@ int maxProductSubset(int a[], int n)
     if (count_neg & 1)
     {
 
-        // Exceptional case: There is only
+        // Exceptional case: There is only one
         // negative and all other are zeros
         if (count_neg == 1 &&
             count_zero > 0 &&
